@@ -1,53 +1,84 @@
-# 🗓️ Wall Calendar — Interactive Next.js Component
+# Stylish Wall Calendar
 
-A polished, interactive wall calendar component built with Next.js 14, TypeScript, and Tailwind CSS.
+A modular, highly interactive React-based calendar component designed with a classic "spiral-bound" aesthetic. This project features theme-adaptive styling, complex date range selection, and persistent task management.
 
-## ✨ Features
+---
 
-- **Wall Calendar Aesthetic** — hero image panel paired with date grid, spiral binding detail
-- **Month-to-month navigation** with page-flip animation
-- **Day Range Selector** — click a start date, hover to preview, click an end date; visual states for start, end, and in-between days
-- **Integrated Notes** — tab between monthly notes and range-specific notes; persisted in `localStorage`
-- **Fully Responsive** — side-by-side on desktop, stacked vertically on mobile
-- **Dark Mode** toggle
-- **Holiday markers** on Dec 25 and Jan 1
-- **Today highlight** with ring indicator
-- **Dynamic hero images** — each month has a themed Unsplash photo
+## Live Demo & Resources
 
-## 🚀 Getting Started
+* **Video Demonstration**: [Link to your video here]
+* **Live Link**: [https://drive.google.com/file/d/1orLl137q_M1jyYkz-NCzD8ogYOf09EVk/view]
 
-```bash
-npm install
-npm run dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000).
+## Core Features
 
-## 🏗️ Project Structure
+### 1. Interactive Date Range Selection
+The component implements a two-click range algorithm. Users can select a start and end date with real-time hover feedback. The UI dynamically adjusts to render a continuous "pill-shaped" highlight across the selected span.
 
-```
-wall-calendar/
-├── app/
-│   ├── globals.css        # CSS variables, animations, responsive styles
-│   ├── layout.tsx         # Font loading (Playfair Display + DM Sans)
-│   └── page.tsx           # Entry page
-├── components/
-│   └── WallCalendar.tsx   # Main calendar component (all logic + UI)
-├── tailwind.config.ts
-├── next.config.js
-└── tsconfig.json
-```
+### 2. Dual-Mode Note System
+Manage tasks in two distinct contexts:
+* **Monthly Notes**: General reminders tied to the specific month view.
+* **Range Notes**: Specific descriptions tied to a selected date range.
 
-## 🧠 Technical Choices
+### 3. Physical Aesthetic & Animations
+* **Spiral Binding**: Custom CSS-engineered spiral holes with inset shadows for depth.
+* **Page Flip**: A 3D-perspective transformation triggered on month navigation to simulate a physical calendar.
+* **Dynamic Badges**: Month and Year indicators using modern clip-path geometry.
 
-- **No backend or API** — all state managed in React + persisted via `localStorage`
-- **CSS-only page flip** animation via `@keyframes rotateX`
-- **Monday-first grid** with weekend colouring
-- **Hover preview** for range end before confirming selection
+### 4. Theme Engine
+Full support for Light and Dark modes. The system utilizes Tailwind CSS in combination with CSS Variables to ensure smooth transitions and high-contrast accessibility.
 
-## 📱 Responsive Behavior
+### 5. Data Persistence
+All notes and theme preferences are synchronized with **LocalStorage**, ensuring user data remains intact after browser refreshes.
 
-| Screen | Layout |
-|--------|--------|
-| Desktop (md+) | Hero image left · Calendar grid + notes right |
-| Mobile | Hero image stacked on top · Grid + notes below |
+---
+
+## Technical Architecture
+
+The project is modularized into specialized components for better maintainability:
+
+* **Controller (`index.tsx`)**: Orchestrates global state, theme logic, and persistence.
+* **Image Panel (`ImagePanel.tsx`)**: Handles navigation and dynamic hero image rendering.
+* **Grid Engine (`CalendarGrid.tsx`)**: Manages complex date calculations and range-based styling.
+* **Notes Section (`NotesSection.tsx`)**: Handles user input and categorized note lists.
+* **Utilities (`utils.ts`)**: Pure functions for date parsing and grid construction.
+
+---
+
+## Getting Started Locally
+
+### Prerequisites
+* Node.js (v18.0.0 or higher)
+* npm or yarn
+
+### Installation
+
+1.  **Clone the repository**:
+    ```bash
+    git clone [https://github.com/your-username/wall-calendar.git](https://github.com/your-username/wall-calendar.git)
+    cd wall-calendar
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+    *Note: This project uses `lucide-react` for icons.*
+
+3.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
+
+4.  **View the app**:
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## Implementation Choices
+
+* **Lucide React**: Chosen for lightweight, consistent iconography across themes.
+* **Clip-Path Geometry**: Used for the month badge to create a modern, non-rectangular look without heavy images.
+* **3D Transforms**: Employed `perspective` and `rotateX` properties in CSS to create a tactile feel that standard flat calendars lack.
+* **Local State**: Opted for native React state over Redux to keep the component lightweight and portable.
