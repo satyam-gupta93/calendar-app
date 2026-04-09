@@ -6,7 +6,7 @@ A modular, highly interactive React-based calendar component designed with a cla
 
 ## Live Demo & Resources
 
-* **Video Demonstration**: [Link to your video here]
+* **Video Demonstration**: [https://calendar-app-amber.vercel.app/]
 * **Live Link**: [https://drive.google.com/file/d/1orLl137q_M1jyYkz-NCzD8ogYOf09EVk/view]
 
 ---
